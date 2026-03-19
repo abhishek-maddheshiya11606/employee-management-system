@@ -14,7 +14,7 @@ public class EmployeeDto {
 
     private Long id;
     private String firstName;
-    private String lastname;
+    private String lastName;
     private String email;
 
 }
