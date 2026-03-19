@@ -20,7 +20,7 @@ public class EmployeeController {
     @PostMapping
     public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto){
         EmployeeDto employeeResponse = employeeService.createEmployee(employeeDto);
-        return new ResponseEntity<>(employeeResponse, HttpStatus.OK);
+        return new ResponseEntity<>(employeeResponse, HttpStatus.CREATED);
     }
 
 //    Fetch employee data By employeeId
@@ -36,5 +36,11 @@ public class EmployeeController {
         return new ResponseEntity<>(employeeDtoList, HttpStatus.OK);
     }
 
+//    Build employee update Rest API Rest Controller
+    @PutMapping("{employeeId}")
+    public ResponseEntity<EmployeeDto> updateEmployee(@PathVariable  Long employeeId, @RequestBody EmployeeDto updateEmployee){
+      EmployeeDto employeeDto =  employeeService.updateEmployee(employeeId, updateEmployee);
+      return new ResponseEntity<>(employeeDto, HttpStatus.OK);
+    }
 
 }
